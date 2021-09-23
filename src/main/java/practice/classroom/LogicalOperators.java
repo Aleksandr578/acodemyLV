@@ -99,6 +99,7 @@ public class LogicalOperators {
                 break;
             case 3:
                 System.out.println("Wednesday");
+                break;
             default:
                 System.out.println("This value is not correct: " + dayOfTheWeek);
         }
