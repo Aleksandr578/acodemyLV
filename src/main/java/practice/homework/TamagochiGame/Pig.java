@@ -34,7 +34,7 @@ public class Pig extends Animal {
 
     @Override
     public void sleep() {
-        System.out.format("ZzzzZzzzz%n");
+        System.out.format("Hrju, ZzZzZ%n");
         changeEnergy(3);
     }
 

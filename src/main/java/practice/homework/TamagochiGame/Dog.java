@@ -34,7 +34,7 @@ public class Dog extends Animal {
 
     @Override
     public void sleep() {
-        System.out.format("ZzzzZzzzz%n");
+        System.out.format("Mmm, my favorite kennel%n");
         changeEnergy(3);
     }
 

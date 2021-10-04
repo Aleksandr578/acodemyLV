@@ -34,7 +34,7 @@ public class Cat extends Animal {
 
     @Override
     public void sleep() {
-        System.out.format("ZzzzZzzzz%n");
+        System.out.format("Mjau, how sweet it is to sleep on a soft pillow%n");
         changeEnergy(3);
     }
 
