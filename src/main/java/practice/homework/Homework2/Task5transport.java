@@ -1,6 +1,4 @@
-package practice.homework.homework2;
-
-import java.util.Scanner;
+package practice.homework.Homework2;
 
 public class Task5transport {
     public static void main(String [] args) {
