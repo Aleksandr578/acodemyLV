@@ -3,11 +3,11 @@ package practice.homework;
 public class ChristmasTree {
     public static void main(String[] args) {
 
-        int dlina = 10;
+        int length = 10;
 
-        for (int i = 1; i <= dlina; i++) {
-            for (int j = 1; j <= (dlina * 2) - 1; j++) {
-                if (j > dlina - i && j < dlina + i) {
+        for (int i = 1; i <= length; i++) {
+            for (int j = 1; j <= (length * 2) - 1; j++) {
+                if (j > length - i && j < length + i) {
                     System.out.format("*");
                 } else {
                     System.out.format(" ");
@@ -17,11 +17,11 @@ public class ChristmasTree {
         }
 
 
-        int sosulka = 10;
+        int icicle = 10;
 
-        for (int i = sosulka; i >= 1; i--) {
-            for (int j = (sosulka * 2) - 1; j >= 1; j--) {
-                if (j > sosulka - i && j < sosulka + i) {
+        for (int i = icicle; i >= 1; i--) {
+            for (int j = (icicle * 2) - 1; j >= 1; j--) {
+                if (j > icicle - i && j < icicle + i) {
                     System.out.format("*");
                 } else {
                     System.out.format(" ");
