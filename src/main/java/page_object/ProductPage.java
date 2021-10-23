@@ -2,7 +2,7 @@ package page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.WebDriverManager;
+import utils.LocalWebDriver;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -10,9 +10,10 @@ import static org.hamcrest.Matchers.is;
 
 public class ProductPage {
 
-    private final WebDriver driver = WebDriverManager.getInstance();
+    private final WebDriver driver = LocalWebDriver.getInstance();
     private By addToCartElement = By.name("add-to-cart");
     private By message = By.className("woocommerce-message");
+    private By shopingCart = By.className("cart-contents");
 
   //  public ProductPade(WebDriver driver){
     //    this.driver = driver;

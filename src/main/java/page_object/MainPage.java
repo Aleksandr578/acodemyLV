@@ -4,14 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.WebDriverManager;
+import utils.LocalWebDriver;
 
 import java.util.List;
 
 public class MainPage {
 
-    WebDriver driver = WebDriverManager.getInstance();
+    WebDriver driver = LocalWebDriver.getInstance();
    private final By productsElements = By.xpath("//ul[contains(@class,'products')]/li");
+
     @FindBy(xpath ="//ul[contains(@class,'products')]/li")
     List<WebElement>webElements;
 
