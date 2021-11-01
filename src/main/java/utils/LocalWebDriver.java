@@ -1,15 +1,18 @@
 package utils;
 
-import exceptions.UnsupportedDriverException;
+import exceptions.UnsupportedBrowserException;
+import exceptions.UnsupportedEnvironmentException;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.util.Locale;
+import java.net.URI;
 
 public class LocalWebDriver {
 
@@ -17,12 +20,11 @@ public class LocalWebDriver {
 
     public static WebDriver getInstance(){
         if (driver == null){
-     //      WebDriverManager.chromedriver().setup();
             driver = configureDriver();
         }
         return driver;
     }
-    public static WebDriver configureDriver(){
+    public static WebDriver localDriver (){
         String browser = PropertiesReader.getProperties().getProperty("browser").toUpperCase();
         switch (browser) {
             case "CHROME":
@@ -39,13 +41,39 @@ public class LocalWebDriver {
                 firefoxOptions.addArguments("--headless");
                 return new FirefoxDriver();
 
-            default: throw  new UnsupportedDriverException("Following browser is not supported: "+ browser);
+            default: throw  new UnsupportedBrowserException("Following browser is not supported: "+ browser);
         }
     }
 
     public static DesiredCapabilities setUpCapabilities() {
         // example of how manage your code better
         return new DesiredCapabilities();
+    }
+
+    @SneakyThrows
+    public static RemoteWebDriver remoteWebDriver(){
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+//        capabilities.setVersion("");
+        capabilities.setCapability("enableVNC", true);
+       capabilities.setCapability("enableVideo", true);
+
+        return new RemoteWebDriver(
+                URI.create("http://(moj ajpi adres):4444/wd/hub").toURL(),
+                capabilities
+        );
+    }
+
+    public static WebDriver configureDriver(){
+     String environment = PropertiesReader.readProperties().getProperty("environment");
+
+     switch (environment){
+         case "local":
+             return localDriver();
+         case "remote":
+             return remoteWebDriver();
+         default: throw new UnsupportedEnvironmentException(String.format("'%s' environment is not supported", environment));
+     }
     }
 
     public static void closeDriver() {

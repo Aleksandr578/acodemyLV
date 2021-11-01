@@ -11,6 +11,7 @@ public class CalculatorTest {
 
     @Test
     public void addTest(){
+
         assertEquals("Sum of two numbers are not correct", 30.0, calculator.add(20, 10), 0);
     }
 
