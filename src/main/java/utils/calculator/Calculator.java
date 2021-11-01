@@ -1,6 +1,5 @@
-package calculator;
+package utils.calculator;
 
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class Calculator {
