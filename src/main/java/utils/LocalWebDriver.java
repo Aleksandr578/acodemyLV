@@ -38,7 +38,7 @@ public class LocalWebDriver {
             case "FIREFOX":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--start-maximized");
                 return new FirefoxDriver();
 
             default: throw  new UnsupportedBrowserException("Following browser is not supported: "+ browser);
