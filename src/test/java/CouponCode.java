@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import static utils.PropertiesReader.getProperties;
 
 @Slf4j
-public class CouponCodeTest<pitstop> {
+public class CouponCode<pitstop> {
 
 
         private final WebDriver driver = LocalWebDriver.getInstance();
@@ -23,7 +23,6 @@ public class CouponCodeTest<pitstop> {
 
         @BeforeEach
         public void setUp() {
-            //   mainPage = new MainPage(driver);
             driver.get(getProperties().getProperty("home.page"));
         }
 
